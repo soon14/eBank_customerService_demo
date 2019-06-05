@@ -1,27 +1,32 @@
 package cn.com.zybank.pe.ebank.customer_service.anti_corruption;
 
-import cn.com.zybank.pe.ebank.customer_service.customer.model.CustomerBasicInformationFromCore;
+import cn.com.zybank.pe.ebank.customer_service.customer.CoreSystemAdapter;
+import cn.com.zybank.pe.ebank.customer_service.customer.CustomerCoreInfo;
 import org.springframework.stereotype.Component;
+
+import java.util.Optional;
 
 @Component
 public class CoreSystemAdapterImpl implements CoreSystemAdapter {
+
     @Override
-    public CustomerBasicInformationFromCore getCustomerByCustomerNumber(String customerNumber) {
-        return null;
+    public Optional<CustomerCoreInfo> getCustomerByCustomerNumber(String customerNumber) {
+        return Optional.empty();
     }
 
     @Override
-    public CustomerBasicInformationFromCore getCustomerByCertificationNumber(String certificationNumber) {
-        return null;
+    public Optional<CustomerCoreInfo> getCustomerByCertificationNumber(String certificationNumber) {
+        return Optional.empty();
     }
 
-    @Override
-    public CustomerBasicInformationFromCore getCustomerByIdNumberOfLegalPerson(String idNumberOfLegalPerson) {
-        return null;
-    }
 
     @Override
     public String[] getAccountsOfCustomerByCustomerNumber(String customerNumber) {
         return new String[0];
+    }
+
+    @Override
+    public Optional<CustomerCoreInfo> getCustomerByAccount(String accountNumber) {
+        return Optional.empty();
     }
 }
