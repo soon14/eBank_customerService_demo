@@ -6,10 +6,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
-import java.util.Set;
 
 public interface CustomerChannelRepository extends CrudRepository<CustomerChannel, CustomerChannelPK> {
 
-//    @Query("SELECT cc from CustomerChannel cc JOIN cc.singedFunctions where cc.customerChannelPK.customerId= :customerId")
+//    todo: n+1 次查询
+    @Query("SELECT cc from CustomerChannel cc  where cc.id.customerId= :customerId")
     List<CustomerChannel> findById_customerId(long customerId);
 }

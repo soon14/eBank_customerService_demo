@@ -19,11 +19,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 class CustomerChannelServiceTest {
 
-    public static final long CUSTOMER_ID = 10086L;
-    public static final long CHANNEL_ID1 = 1L;
-    public static final long CHANNEL_ID2 = 2L;
+
+    private static final long CUSTOMER_ID = 10086L;
+    private static final long CHANNEL_ID1 = 1L;
+    private static final long CHANNEL_ID2 = 2L;
     @Autowired
-    CustomerChannelService service;
+    private CustomerChannelService service;
 
     @BeforeEach
     @DisplayName("一个客户签约两个渠道")
@@ -52,11 +53,10 @@ class CustomerChannelServiceTest {
 
     @Test
     @DisplayName("查询一个客户渠道的所有功能")
-    void searchFunctionsWithCustomerChannel() throws Exception {
+    void searchFunctionsWithCustomerChannel() {
         List<CustomerChannel> byCustomerId = service.findSignedChannelOfCustomer(CUSTOMER_ID);
 
         Set<Long> singedFunctions = byCustomerId.get(0).getSingedFunctions();
-        System.err.println("singedFunctions!!!!!!!!!!!!!!**** = " + singedFunctions);
 
         assertThat(singedFunctions).contains(1L,2L,3L);
     }
@@ -65,20 +65,16 @@ class CustomerChannelServiceTest {
     @DisplayName("更新一个客户渠道的功能")
     void updateFunctionsWithCustomerChannel() {
         CustomerChannel cc1 = service.findById(new CustomerChannelPK(CUSTOMER_ID, CHANNEL_ID1));
-        cc1.setSingedFunctions(functionOf(9L, 10L));
 
+        cc1.setSingedFunctions(functionOf(9L, 10L));
         CustomerChannel updated = service.save(cc1);
 
-
         assertThat(updated.getSingedFunctions()).contains(9L,10L);
-
         assertThat(updated.getId()).isEqualTo(new CustomerChannelPK(CUSTOMER_ID,CHANNEL_ID1));
     }
 
     private HashSet<Long> functionOf(Long... fId) {
-        HashSet<Long> functions = new HashSet<>();
-        Arrays.stream(fId).forEach(functions::add);
-        return functions;
+        return new HashSet<>(Arrays.asList(fId));
     }
 
 
