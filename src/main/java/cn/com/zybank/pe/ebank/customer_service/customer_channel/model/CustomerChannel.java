@@ -33,8 +33,7 @@ public class CustomerChannel implements Serializable {
 
 // todo:   测试 beanUtil 是否可行
     public Set<Long> getSingedFunctions() {
-        Object deserialize = SerializationUtils.deserialize(SerializationUtils.serialize(singedFunctions));
 
-        return (Set<Long>) deserialize;
+        return (Set<Long>) SerializationUtils.deserialize(SerializationUtils.serialize(singedFunctions));
     }
 }
