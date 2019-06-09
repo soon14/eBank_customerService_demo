@@ -1,4 +1,4 @@
-package cn.com.zybank.pe.ebank.customer_service.customer;
+package cn.com.zybank.pe.ebank.customer_service.customer.model;
 
 import lombok.Data;
 

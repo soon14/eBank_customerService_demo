@@ -9,25 +9,23 @@ import java.util.Set;
 
 @Entity
 @RequiredArgsConstructor
+@NoArgsConstructor(force = true)
+@Getter
+@Setter
 public class Operator{
 
     @Id
     @GeneratedValue
-    @Getter
     private Long id;
 
-    @Getter
-    @Setter
     @NonNull
+    @Column(nullable = false)
     private  String name;
 
-    @Getter
-    @Setter
     @NotNull
-    private Long organizationId;
+    @Column(nullable = false)
+    private Long customerId;
 
-    @Getter
-    @Setter
     @ElementCollection
     private Set<Long> rolesId;
 

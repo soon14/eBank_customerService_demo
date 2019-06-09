@@ -1,7 +1,7 @@
 package cn.com.zybank.pe.ebank.customer_service.anti_corruption;
 
 import cn.com.zybank.pe.ebank.customer_service.customer.CoreSystemAdapter;
-import cn.com.zybank.pe.ebank.customer_service.customer.CustomerCoreInfo;
+import cn.com.zybank.pe.ebank.customer_service.customer.model.CustomerCoreInfo;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;

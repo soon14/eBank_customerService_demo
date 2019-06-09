@@ -1,5 +1,7 @@
 package cn.com.zybank.pe.ebank.customer_service.customer;
 
+import cn.com.zybank.pe.ebank.customer_service.customer.model.Customer;
+import cn.com.zybank.pe.ebank.customer_service.customer.model.CustomerCoreInfo;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -96,7 +98,7 @@ class CustomerServiceTest {
         coreInfo.setEnglishName("china space");
         coreInfo.setAddress("知春里");
         coreInfo.setZipcode("10086");
-        coreInfo.setLegalPersonName("张三丰");
+        coreInfo.setLegalPersonName("NAME");
         coreInfo.setLegalPersonCertificationtype("身份证");
         coreInfo.setLegalPersonId("11001100110000");
         return coreInfo;
