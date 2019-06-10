@@ -4,8 +4,8 @@ import cn.com.zybank.pe.ebank.customer_service.customer_channel.model.CustomerCh
 import lombok.*;
 
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 
@@ -16,17 +16,16 @@ import javax.persistence.Id;
 @Setter
 @EqualsAndHashCode(of = "id")
 @ToString
-public class Account {
-    @Id
-    @GeneratedValue
-    private final Long id;
+public class ChannelAccount {
+    @EmbeddedId
+    private final CustomerChannelAccountId id;
+
     @Column(nullable = false)
-    private String accountNumber;
     private double onceLimit;
     private double dayAmmount;
     private PermitType permitType;
 
 
-    private CustomerChannelPK customerChannelId;
+
 
 }
