@@ -30,11 +30,12 @@ public class CustomerChannel implements Serializable {
 
     //todo: 关注渠道功能变化的事件
     @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "customer_channel_function",joinColumns = {@JoinColumn(name="customer_id"),@JoinColumn(name = "channel_id")})
+    @CollectionTable(name = "customer_channel_function", joinColumns = {@JoinColumn(name = "customer_id", referencedColumnName = "CUSTOMER_ID", insertable = false, updatable = false), @JoinColumn(name = "channel_id", referencedColumnName = "CHANNEL_ID", insertable = false, updatable = false)})
     @Setter
     private Set<Long>  singedFunctions = new HashSet<>();
 
-// todo:   测试 beanUtil 是否可行
+
+    // todo:   测试 beanUtil 是否可行
     public Set<Long> getSingedFunctions() {
 
         return (Set<Long>) SerializationUtils.deserialize(SerializationUtils.serialize(singedFunctions));

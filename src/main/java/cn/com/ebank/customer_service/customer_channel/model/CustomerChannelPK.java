@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import java.io.Serializable;
 
@@ -12,8 +13,9 @@ import java.io.Serializable;
 @NoArgsConstructor(force = true)
 @Data
 public class CustomerChannelPK implements Serializable {
+    @Column(name = "CUSTOMER_ID")
     private final Long customerId;
+    @Column(name = "CHANNEL_ID")
     private final Long channelId;
-
 
 }
