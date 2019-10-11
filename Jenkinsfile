@@ -14,4 +14,11 @@ node('java') {
             sh "${tool 'LocalScanner'}/bin/sonar-scanner"
         }
     }
+
+    stage('quality gate'){
+        timeout(time:5,unit:'MINUTES'){
+            def qg = waitForQualityGate()
+            echo qg.toString()
+        }
+    }
 }
