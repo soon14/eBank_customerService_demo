@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps{
-                echo "${tool 'M3'}"
+                sh "${tool 'M3'}/bin/mvn -version"
             }
         }
     }
