@@ -1,3 +1,6 @@
 node('java'){
-        echo "${tool 'M3'}/bin/mnv"
+        def MVN = tool 'M3'+'/bin/mvn'
+        stage('compile'){
+                echo MVN
+        }
 }
