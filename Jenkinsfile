@@ -6,8 +6,8 @@ node('java') {
     }
 
     stage('sonar') {
-        withSonarQubeEnv('LocalSonarqube') {
-            sh "${tool 'LocalScanner'}/bin/sonar-scanner"
-        }
+//        withSonarQubeEnv('LocalSonarqube') {
+//            sh "${tool 'LocalScanner'}/bin/sonar-scanner"
+//        }
     }
 }
