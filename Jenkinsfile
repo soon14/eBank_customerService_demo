@@ -5,6 +5,14 @@ pipeline {
             steps{
                 sh "${tool 'M3'}/bin/mvn -version"
             }
+            post{
+                success{
+                    echo '-------------'
+                }
+                failure{
+                    echo 'xxxxxxx'
+                }
+            }
         }
     }
 
