@@ -18,7 +18,9 @@ node('java') {
     stage('quality gate'){
         timeout(time:5,unit:'MINUTES'){
             def qg = waitForQualityGate()
-            echo qg.toString()
+            if (qg.status!='OK'){
+                error '质量门失败：'+qg.status
+            }
         }
     }
 }
