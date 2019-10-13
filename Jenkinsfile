@@ -38,7 +38,7 @@ node('java') {
     stage('define env') {
         def A = '---------------------'
         env.OUTER = '9999'
-        withEnv(["INNER = 88888"]) {}
+        withEnv(['INNER = 88888']) {}
         sh 'printenv'
     }
     stage('test evn cross stage') {
