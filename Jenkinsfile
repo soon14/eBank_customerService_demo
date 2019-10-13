@@ -34,4 +34,9 @@ node('java') {
         echo 'CHANGE_TITLE:'+env.CHANGE_TITLE
         echo 'CHANGE_AUTHOR:'+env.CHANGE_AUTHOR
     }
+
+    stage('define env'){
+        env.NAME='9999'
+        sh 'printenv'
+    }
 }
