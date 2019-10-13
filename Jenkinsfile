@@ -35,19 +35,23 @@ node('java') {
         echo 'CHANGE_AUTHOR:' + env.CHANGE_AUTHOR
     }
 
-    stage('define env') {
-        def A = '---------------------'
-        env.OUTER = '9999'
-        withEnv(['INNER = 88888']) {
-            sh 'printenv'
-        }
-    }
+//    stage('define env') {
+//        def A = '---------------------'
+//        env.OUTER = '9999'
+//        withEnv(['INNER = 88888']) {
+//            sh 'printenv'
+//        }
+//    }
     stage('test evn cross stage') {
         sh 'printenv'
     }
 
     stage('test exit code'){
         sh 'exit 0'
+    }
+
+    stage('test if maven '){
+        sh 'mvn -version'
     }
 }
 
