@@ -45,6 +45,10 @@ node('java') {
     stage('test evn cross stage') {
         sh 'printenv'
     }
+
+    stage('test exit code'){
+        sh 'exit -1'
+    }
 }
 
 
