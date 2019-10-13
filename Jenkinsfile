@@ -36,6 +36,7 @@ node('java') {
     }
 
     stage('define env'){
+        def A='---------------------'
         env.NAME='9999'
         sh 'printenv'
     }
