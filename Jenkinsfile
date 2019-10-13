@@ -52,6 +52,7 @@ node('java') {
 
     stage('test if maven '){
         env.PATH=''
+        sh 'printenv'
         sh 'mvn -version'
     }
 }
