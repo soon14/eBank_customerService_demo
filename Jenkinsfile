@@ -31,5 +31,7 @@ node('java') {
         echo 'EXECUTOR_NUMBER'+env.EXECUTOR_NUMBER
         echo 'JOB_NAME'+env.JOB_NAME
         echo 'NODE_NAME:'+env.NODE_NAME
+        echo 'CHANGE_TITLE:'+env.CHANGE_TITLE
+        echo 'CHANGE_AUTHOR:'+env.CHANGE_AUTHOR
     }
 }
