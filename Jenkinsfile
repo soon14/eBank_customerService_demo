@@ -47,7 +47,7 @@ node('java') {
     }
 
     stage('test exit code'){
-        sh 'exit -1'
+        sh 'exit 0'
     }
 }
 
