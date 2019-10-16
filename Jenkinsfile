@@ -24,36 +24,8 @@ node('java') {
 //        }
 //    }
 
-    stage('lean env') {
-        echo 'BUILD_ID' + env.BUILD_ID
-        echo 'BUILD_NUMBER' + env.BUILD_NUMBER
-        echo 'BUILD_URL' + env.BUILD_URL
-        echo 'EXECUTOR_NUMBER' + env.EXECUTOR_NUMBER
-        echo 'JOB_NAME' + env.JOB_NAME
-        echo 'NODE_NAME:' + env.NODE_NAME
-        echo 'CHANGE_TITLE:' + env.CHANGE_TITLE
-        echo 'CHANGE_AUTHOR:' + env.CHANGE_AUTHOR
-    }
-
-//    stage('define env') {
-//        def A = '---------------------'
-//        env.OUTER = '9999'
-//        withEnv(['INNER = 88888']) {
-//            sh 'printenv'
-//        }
-//    }
-    stage('test evn cross stage') {
-        sh 'printenv'
-    }
-
-    stage('test exit code'){
-        sh 'exit 0'
-    }
-
-    stage('test if maven '){
-        env.PATH=''
-        sh 'printenv'
-        sh 'mvn -version'
+    stage('trigger downstream'){
+        build job: 'downstream', propagate: false, wait: false
     }
 }
 
