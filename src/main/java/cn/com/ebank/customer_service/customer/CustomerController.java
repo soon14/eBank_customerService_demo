@@ -18,6 +18,11 @@ public class CustomerController {
     }
 
 
+    @GetMapping("/")
+    public String get() {
+        return "you are accessing customer service";
+    }
+
     @PostMapping
     public Customer register(@RequestBody Customer customer) {
         return service.register(customer);
