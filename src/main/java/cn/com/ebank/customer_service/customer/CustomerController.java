@@ -18,7 +18,7 @@ public class CustomerController {
     }
 
 
-    @GetMapping("/")
+    @GetMapping("/get")
     public String get() {
         return "you are accessing customer service";
     }
